@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- CSS LINKS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- JS LINKS -->
+    <script defer src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <title>Psychic Game</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="jumbotron">
+                        <h1 class="display-4">The Psychic Game</h1>
+                        <p class="lead">Guess the letter I'm thinking of.</p>
+                        <hr class="my-4">
+                        <h4 id="rules-heading"></h4>
+                        <p id="game-rules">The computer is thinking of a letter, please press a letter key (A-Z) to make
+                            take a guess. Each round consists of 10 guesses. Can you read the computer's mind?</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <body>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div id="score-area">
+                        <h3 id="score-heading">Scores</h3>
+                        <h4>Win: <span id="win-display">0</span></h4>
+                        <h4>Loss: <span id="loss-display">0</span></h4>
+                    </div>
+
+                </div>
+                <div class="col-lg-6">
+                    <div id="guess-area">
+                        <h3 id="guess-heading">Guess Stats</h3>
+                        <h4>You Guessed: <span id="user-guess-display"></span></h4>
+                        <h4>Number of Guesses Remaining: <span id="remaining-guesses-display">10</span></h4>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4 id="answer-area">The Computers Letter Was: <span id="computer-letter"></span></h4>
+                </div>
+            </div>
+        </body>
+        <footer>
+        </footer>
+    </div>
+    <div id="copyright-text">
+        <h6>Copyright &copy;</h6>
+    </div>
+</body>
+
+</html>
