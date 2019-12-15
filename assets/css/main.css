@@ -1,0 +1,32 @@
+body{
+    background-image: url(https://media.giphy.com/media/Uab137M981Ev6/giphy.gif);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container{
+    background-color: rgba(255, 255, 255, 0.7);
+    margin: 15px auto 15px auto;
+}
+
+#copyright-text{
+    text-align: center;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px 0 10px 0;
+    position: static;
+    
+}
+
+#win-display{
+    color: green;
+}
+
+#loss-display{
+    color: red;
+}
+
+#score-heading, #guess-heading{
+    text-decoration: underline;
+}
