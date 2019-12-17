@@ -13,6 +13,7 @@ var userGuessDisplayText = document.getElementById("user-guess-display");
 winCountText.textContent = winCount;
 lossCountText.textContent = lossCount;
 turnCountText.textContent = turnCount;
+computerLetterText.textContent = computerLetter;
 
 //Creates the array to store the letter selection of the computer at the beginning of each round
 var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -23,28 +24,33 @@ var computerLetter = computerChoices[computerLetterIndex];
 
 // Changes user-guess-display area to show key press
 document.onkeyup = function (event) {
+
     userGuessDisplayText.innerHTML = event.key;
     var userChoice = event.key;
+
     if (userChoice === computerLetter) {
+
         winCount++;
+        winCountText.textContent = winCount;
+        computerLetterText.textContent = computerLetter;
         alert("You guessed correctly, good job!");
+        resetGame();
+
     } else if (turnCount === 0) {
-        alert("Sorry you have run out of guesses. Want to play again?");
         lossCount++;
+        lossCountText.textContent = lossCount;
+        computerLetterText.textContent = computerLetter;
+        alert("Sorry you have run out of guesses. Want to play again?");
+        resetGame();
     } else {
         turnCount--;
+        turnCountText.textContent = turnCount;
     }
 }
 
-
-// Checks if win condition has been met
-// if(userChoice === computerLetter){
-//     winCount++;
-//     alert("You guessed correctly, good job!");
-// } else if(turnCount === 0){
-//     alert("Sorry you have run out of guesses. Want to play again?");
-//     lossCount++;
-// }else{
-//     turnCount--;
-// }
-
+function resetGame(){
+turnCount = 10;
+turnCountText.textContent = turnCount;
+computerLetterIndex = Math.floor(Math.random() * computerChoices.length);
+computerLetter = computerChoices[computerLetterIndex];
+}
