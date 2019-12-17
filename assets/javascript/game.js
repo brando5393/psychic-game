@@ -33,24 +33,33 @@ document.onkeyup = function (event) {
         winCount++;
         winCountText.textContent = winCount;
         computerLetterText.textContent = computerLetter;
+        console.log("if. " + turnCount);
         alert("You guessed correctly, good job!");
         resetGame();
 
-    } else if (turnCount === 0) {
+    } else if (turnCount === 1) {
+        turnCount--;
+        turnCountText.textContent = turnCount;
         lossCount++;
         lossCountText.textContent = lossCount;
         computerLetterText.textContent = computerLetter;
-        alert("Sorry you have run out of guesses. Want to play again?");
-        resetGame();
+        console.log("else if. " + turnCount);
+        lostGame();
     } else {
         turnCount--;
         turnCountText.textContent = turnCount;
+        console.log("else. " + turnCount);
     }
 }
 
 function resetGame(){
-turnCount = 10;
+turnCount = 9;
 turnCountText.textContent = turnCount;
 computerLetterIndex = Math.floor(Math.random() * computerChoices.length);
 computerLetter = computerChoices[computerLetterIndex];
+}
+
+function lostGame(){
+            alert("Sorry you have run out of guesses. Want to play again?");
+            resetGame();
 }
