@@ -9,6 +9,9 @@ var lossCountText = document.getElementById("loss-display");
 var turnCountText = document.getElementById("remaining-guesses-display");
 var computerLetterText = document.getElementById("computer-letter");
 var userGuessDisplayText = document.getElementById("user-guess-display");
+var winMessage = "You guessed correctly, good job!";
+var lossMessage = "Sorry you have run out of guesses. Want to play again?";
+// var resetGameTimer;
 //Code to update game vales
 winCountText.textContent = winCount;
 lossCountText.textContent = lossCount;
@@ -22,6 +25,8 @@ var computerLetterIndex = Math.floor(Math.random() * computerChoices.length);
 // Takes the index from the var above and converts it into the computer's letter
 var computerLetter = computerChoices[computerLetterIndex];
 
+//DEBUG
+console.log(computerLetter);
 // Changes user-guess-display area to show key press
 document.onkeyup = function (event) {
 
@@ -35,16 +40,16 @@ document.onkeyup = function (event) {
         computerLetterText.textContent = computerLetter;
         console.log("if. " + turnCount);
         alert("You guessed correctly, good job!");
-        resetGame();
+        resetGameHandlerWin();
 
     } else if (turnCount === 1) {
         turnCount--;
-        turnCountText.textContent = turnCount;
         lossCount++;
         lossCountText.textContent = lossCount;
         computerLetterText.textContent = computerLetter;
         console.log("else if. " + turnCount);
-        lostGame();
+        alert("Sorry you have run out of guesses, want to play again?");
+        resetGameHandlerLoss();
     } else {
         turnCount--;
         turnCountText.textContent = turnCount;
@@ -52,14 +57,21 @@ document.onkeyup = function (event) {
     }
 }
 
-function resetGame(){
-turnCount = 9;
-turnCountText.textContent = turnCount;
-computerLetterIndex = Math.floor(Math.random() * computerChoices.length);
-computerLetter = computerChoices[computerLetterIndex];
+function resetGame() {
+    turnCount = 10;
+    turnCountText.textContent = turnCount;
+    computerLetterIndex = Math.floor(Math.random() * computerChoices.length);
+    computerLetter = computerChoices[computerLetterIndex];
+    //DEBUG
+    console.log(computerLetter);
 }
 
-function lostGame(){
-            alert("Sorry you have run out of guesses. Want to play again?");
-            resetGame();
+function resetGameHandlerLoss(){
+    turnCountText.textContent = lossMessage;
+     window.setTimeout(resetGame(), 60000);
+}
+
+function resetGameHandlerWin(){
+    turnCountText.textContent = winMessage;
+     window.setTimeout(resetGame(), 60000);
 }

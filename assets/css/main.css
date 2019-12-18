@@ -19,6 +19,10 @@ body{
     
 }
 
+.page-heading{
+    font-family: fantasy;
+}
+
 #win-display{
     color: blue;
 }
